@@ -1,12 +1,9 @@
-import Head from 'next/head'
-import styles from '../styles/Layout.module.css'
+import Meta from '../components/Meta'
 
 export default function Home() {
   return (
     <div>
-      <Head>
-        <title>About Title</title>
-      </Head>
+      <Meta title='About' />
       <h1>Welcome to About Page</h1>
     </div>
   )
