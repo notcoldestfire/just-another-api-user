@@ -5,7 +5,7 @@ const Articleitem = ({ article }) => {
   return (
     <Link href="/article/[id]" as={`/article/${article.id}`}>
       <a className={articleStyles.card}>
-        <h3>{article.title} &rarr;</h3>
+        <h3 className="font-bold">{article.title} &rarr;</h3>
         <p>{article.genre}</p>
       </a>
     </Link>

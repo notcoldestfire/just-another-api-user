@@ -6,12 +6,18 @@ import {useRouter} from 'next/router'
 const article = ({ article }) => {
   // const router = useRouter();
   // const {id} = router.query;
+  function handleClick() {
+    console.log('Button clicked');
+  }
 
   return (
     <>
-      <Meta title={article.title} description={article.excerpt} />
-      <h1>{article.title}</h1>
+      <Meta title={article.title} description={article.genre} />
+      <h1 className="text-4xl font-bold">{article.title}</h1>
       <p>{article.genre}</p>
+      <button onClick={handleClick} className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+        Pay
+      </button>
       <br />
       <Link href='/'>Go Back</Link>
     </>
