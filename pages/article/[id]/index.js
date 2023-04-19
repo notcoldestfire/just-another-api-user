@@ -4,10 +4,26 @@ import Meta from '../../../components/Meta'
 import {useRouter} from 'next/router'
 
 const article = ({ article }) => {
-  // const router = useRouter();
-  // const {id} = router.query;
   function handleClick() {
-    console.log('Button clicked');
+    const options = {
+      method: 'POST',
+      headers: {
+        accept: 'application/json',
+        'content-type': 'application/json',
+        authorization: 'Bearer <API_KEY>'
+      },
+      body: JSON.stringify({
+        source: {type: 'wallet', id: '1015154892'},
+        destination: {type: 'wallet', id: '1015155127'},
+        amount: {amount: '1', currency: 'USD'},
+        idempotencyKey: '<IDEM_KEY>'
+      })
+    };
+
+    fetch('https://api-sandbox.circle.com/v1/transfers', options)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
   }
 
   return (
@@ -15,9 +31,7 @@ const article = ({ article }) => {
       <Meta title={article.title} description={article.genre} />
       <h1 className="text-4xl font-bold">{article.title}</h1>
       <p>{article.genre}</p>
-      <button onClick={handleClick} className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-        Pay
-      </button>
+      <button onClick={handleClick} className="btn btn-info">Pay</button>
       <br />
       <Link href='/'>Go Back</Link>
     </>

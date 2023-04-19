@@ -7,7 +7,7 @@ const Header = () => {
       <h1 className={headerStyles.title}>
         <span>CineVault</span> Movies
       </h1>
-      <p className={headerStyles.description}>Keep up to date with the latest movies!</p>
+      <br />
       {/* <style jsx>
         {`
           .title {
